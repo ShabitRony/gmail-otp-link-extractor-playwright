@@ -1,8 +1,8 @@
 ## 📌 Playwright Automation – Gmail OTP & Account Confirmation
 # This project automates Gmail-based flows using Playwright.
--It covers extracting OTP from Gmail and accessing confirmation links (via Gmail API Token or Gmail App Password).
+- It covers extracting OTP from Gmail and accessing confirmation links (via Gmail API Token or Gmail App Password).
 ## 🚀 Features Automated
--✅ Gmail Account Confirmation
+- Gmail Account Confirmation
 
 - Fetches confirmation email from Gmail.
 
@@ -43,8 +43,8 @@
 
 `npx playwright install`
 
-## 📧 Gmail Access Setup
-- Option 1: Generate Gmail API Token using OAuth 2.0 Playground
+##  Gmail Access Setup
+# Option 1: Generate Gmail API Token using OAuth 2.0 Playground
 
 - Visit OAuth 2.0 Playground.
 
@@ -60,7 +60,7 @@
 
 - Copy the access token and place it in .env.
 
-- Option 2: Generate Gmail App Password
+# Option 2: Generate Gmail App Password
 
 - Enable 2-Step Verification in your Google Account.
 
