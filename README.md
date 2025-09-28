@@ -120,26 +120,18 @@ In App passwords:
 📂 Folder Structure
 
 GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
+
 │── 📂 pages # Page Object classes
-
 │ ├── OtpLoginPage.js
-
 │ └── ConfirmationPage.js
-
 │
 │── 📂 tests # Test cases (spec files)
-
 │ ├── otp.spec.js
-
 │ └── confirmLink.spec.js
-
 │
 │── 📂 utils # Utility/helper functions
-
 │ ├── gmailUtils.js
-
 │ └── helpers.js
-
 │
 └── userData.json # Store Test data
 
