@@ -7,6 +7,8 @@
 - Fetches confirmation email from Gmail.
 
 - Extracts confirmation link from HTML body.
+  
+- Extracts confirmation link from plain text.
 
 - Clicks Confirm Account button from the email.
 
