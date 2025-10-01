@@ -1,99 +1,152 @@
-# 📌 Playwright Automation – User Registration, Gmail Validation & Reset Password
+## 📌 Playwright Automation – Gmail OTP & Account Confirmation
+# This project automates Gmail-based flows using Playwright.
+- It covers extracting OTP from Gmail and accessing confirmation links (via Gmail API Token or Gmail App Password).
+## 🚀 Features Automated
+- Gmail Account Confirmation
 
-## This project automates end-to-end user flows using Playwright.
-## It covers user registration, Gmail validation (via OAuth 2.0 Gmail API), reset password flow, and user deletion with API calls.
+- Fetches confirmation email from Gmail.
 
-# 🚀 Features Automated
-## ✅ User Registration
+- Extracts confirmation link from HTML body.
+  
+- Extracts confirmation link from plain text.
 
-- Automates new user registration on the application.
+- Clicks Confirm Account button from the email.
 
-- Verifies congratulations toast message.
+- Verifies successful login.
 
-- Fetches registration validation mail from Gmail using Gmail API.
+## 🔑 OTP Extraction
 
-- Stores registered user information in JSON format.
+- Fetches OTP from Gmail email.
 
-## 🔑 Reset Password
+- Extracts OTP from plain text.
 
-- Automates Forgot Password flow.
-
-- Accesses reset password link from Gmail (OAuth 2.0 Gmail API).
-
-- Validates the reset process.
-
-## 🗑️ User Deletion
-
-- Calls the Delete User API.
-
-- Validates successful deletion with response assertion.
+- Enters OTP into application OTP field.
 
 ## Prerequisites
 
-Node.js
- installed (v18+ recommended).
+- Node.js
+- installed (v18+ recommended).
 
-Gmail account with 2-Factor Authentication enabled.
+- Gmail account with 2-Factor Authentication enabled.(2-Factor authentication optional for Gmail-API-Token)
 
-A valid OAuth 2.0 token generated from Google OAuth Playground
+- A valid OAuth 2.0 token generated from Google OAuth Playground or a Gmail App Password.
 
 ## ⚙️ Installation & Setup
+- Clone the Repository
 
+`git clone https://github.com/ShabitRony/gmail-otp-link-extractor-playwright`
+`cd gmail-otp-link-extractor-playwright`
 
-# Clone the Repository
-`git clone https://github.com/ShabitRony/gmail-api-access-token-playwright`
-` cd gmail-api-token-access`
+## Install Dependencies
 
-# Install Dependencies
 `npm install`
 
-# Install Playwright Browsers:
+## Install Playwright Browsers:
+
 `npx playwright install`
 
-## 📧 Generate Gmail API Token using OAuth 2.0 Playground
-- Visit OAuth 2.0 Playground
-- On the left side, scroll down or search Gmail API v1
+##  Gmail Access Setup
+# Option 1 — Generate Gmail API token (OAuth 2.0 Playground)
 
-- Check ✅ https://www.googleapis.com/auth/gmail.readonly
+- When to use: preferred for production or when you need OAuth refresh tokens (safer and Google-recommended). 
 
-- This gives your app read-only access to emails.
 
-- Click Authorize APIs.
+- Use OAuth 2.0 Playground to get tokens
 
-- Sign in with your Gmail account and allow access.
+- Open OAuth 2.0 Playground: https://developers.google.com/oauthplayground
 
-## Configure Environment Variabless
+- On the left side of the Playground, under Step 1 — Select & authorize APIs, scroll the list or use the search box and locate Gmail API v1.
+
+- Under Gmail API expand it and check the scope:
+
+`https://www.googleapis.com/auth/gmail.readonly`
+
+
+- (that scope gives read-only access to mail). 
+- Then click Authorize APIs. 
+
+- Playground will display an Access token, Refresh token, and expiry. Copy these values.
+
+- Where to put tokens in .env (example)
+
+- GMAIL_API_TOKEN=<ya29.a0Af...>         # the access token from Playground
+
+
+Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
+
+- When to use: quick for personal accounts or development when the app accepts username+password (but not preferable for production). App passwords require 2-Step Verification on the Google account. 
+
+Step-by-step (desktop / web browser):
+
+- Open https://myaccount.google.com
+- and sign in to the Google account you want to use.
+
+- In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
+
+- Under “How you sign in to Google” find 2-Step Verification → click it → click Get started (or Turn on) and follow the prompts:
+
+- Enter account password, add a phone number or authenticator app, and verify the second factor. Complete setup. 
+
+- After 2-Step Verification is enabled, Scroll down and click App passwords.
+
+In App passwords:
+
+- Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
+
+- Select device: choose the appropriate device or Other → give a name.
+
+- Click Generate.
+
+- Google will display a 16-character app password (grouped like abcd efgh ijkl mnop). Copy this password now — you will not be able to view it again after closing.
+
+- Put this in your .env (example):
+
+`GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
+
+- Configure Environment Variables
 
 - Create a .env file in the project root and add:
 
-`Gmail_URL=https://gmail.googleapis.com/gmail/v1/users/me/messages/`
+`Gmail_URL=https://gmail.googleapis.com/gmail/v1/users/me/messages`
 `GMAIL_API_TOKEN=<your-oauth2-token>`
-`APP_BASE_URL=<your-application-url>`
-`DELETE_USER_API=<delete-user-api-endpoint>`
 
-## 📂 Fonlder Structure
-GMAIL-API-TOKEN-ACCESS/
-│── 📂 flow                   # High-level test flows
-│   └── registrationFlow.js
+`GMAIL_EMAIL=<your-gmail-address>`
+
+`GMAIL_APP_PASSWORD=<your-app-password>`
+
+`base_URLL=<your-application-url>`
+
+`GOOGLE_PASSWORD=<websie-login-password>`
+
+📂 Folder Structure
+
+GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
+
+│── 📂 pages # Page Object classes
+
+│ ├── OtpLoginPage.js
+
+│ └── ConfirmationPage.js
+
 │
-│── 📂 pages                  # Page Object classes
-│   ├── RegistrationPage.js
-│   ├── ResetPasswordPage.js
-│   └── DeleteUserPage.js
+│── 📂 tests # Test cases (spec files)
+
+│ ├── otp.spec.js
+
+│ └── confirmLink.spec.js
+
 │
-│── 📂 tests                  # Test cases (spec files)
-│   ├── registration.spec.js
-│   ├── resetPassword.spec.js
-│   └── deleteUser.spec.js
-│
-│── 📂 utils                  # Utility/helper functions
-│   ├── gmailUtils.js
-│   ├── userUtils.js
-│   ├── toastUtils.js
-│   ├── generateRandomUser.js
-│   └── registrationHelper.js
-│
-└── userData.json             # Store Test data
+│── 📂 utils # Utility/helper functions
+
+│ ├── generateRandomUser.js
+
+│ └── gmailUtils.js
+
+│ └── gmailUtilsAppPassword.js
+
+│ └── gmailUtilsCombined.js
+
+│ └── loginSetup.js
 
 
 ## 🛠️ Tech Stack
@@ -102,17 +155,18 @@ GMAIL-API-TOKEN-ACCESS/
 
 - Node.js – Runtime environment
 
-- Gmail API – Accessing emails programmatically
+- Gmail API / App Password – Accessing emails programmatically
 
 - OAuth 2.0 Playground – To generate Gmail API tokens
 
 - JSON – For storing user data
 
-
-
-
 ## Run Tests
+
 # Run all Test
+
 `npx playwright test`
+
 # For Single test
-`npx playwright test "./tests/1_UserRegistration.spec.js"`
+
+`npx playwright test "./test/otp.spec.js"`
