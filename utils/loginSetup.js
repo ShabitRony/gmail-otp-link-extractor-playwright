@@ -1,7 +1,7 @@
 // utils/loginSetup.js
-import { mitLoginPage } from '../pages/mitLoginPage'; // ✅ match file & class
+import { otpLoginPage } from '../pages/otpLoginPage'; // ✅ match file & class
 
 export async function loginBeforeEachTest(page) {
-  const loginPage = new mitLoginPage(page);
+  const loginPage = new otpLoginPage(page);
   await loginPage.login(); //  this will now work
 }

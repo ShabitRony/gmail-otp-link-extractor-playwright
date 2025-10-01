@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { getLatestEmailDetailsUnified } from '../utils/gmailUtilsCombined.js'; // import the unified function
 
-export class mitLoginPage {
+export class otpLoginPage {
   constructor(page) {
     this.page = page;
     this.emailInput = page.locator('div').filter({ hasText: /^Email$/ }).locator('div').nth(1).locator('input[type="email"]');
