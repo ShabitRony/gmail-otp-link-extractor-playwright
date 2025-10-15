@@ -72,24 +72,29 @@
 - GMAIL_API_TOKEN=<ya29.a0Af...>         # the access token from Playground
 
 
-Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
+# Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
 
-- When to use: quick for personal accounts or development when the app accepts username+password (but not preferable for production). App passwords require 2-Step Verification on the Google account. 
+- When to use: quick for personal accounts or development when the app accepts username+password (but not preferable for production). App passwords        require 2-Step Verification on the Google account. 
 
 Step-by-step (desktop / web browser):
 
-- Open https://myaccount.google.com
-- and sign in to the Google account you want to use.
+- 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
 
-- In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
+- 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
 
-- Under “How you sign in to Google” find 2-Step Verification → click it → click Get started (or Turn on) and follow the prompts:
+- 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
 
-- Enter account password, add a phone number or authenticator app, and verify the second factor. Complete setup. 
+- If not enabled yet, click Get started (or Turn on) and follow the prompts:
 
-- After 2-Step Verification is enabled, Scroll down and click App passwords.
+- Enter your account password
 
-In App passwords:
+- Add a phone number or authenticator app
+
+- Verify the second factor and complete setup.
+
+- If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
+
+- 4. In App passwords:
 
 - Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
 
