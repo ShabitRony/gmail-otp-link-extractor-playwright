@@ -79,11 +79,11 @@
 
 Step-by-step (desktop / web browser):
 
-# 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
+### 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
 
-# 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
+### 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
 
-# 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
+### 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
 
  - If not enabled yet, click Get started (or Turn on) and follow the prompts:
 
@@ -95,7 +95,7 @@ Step-by-step (desktop / web browser):
 
  - If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
 
-  # 4. In App passwords:
+  ### 4. In App passwords:
 
  - Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
 
