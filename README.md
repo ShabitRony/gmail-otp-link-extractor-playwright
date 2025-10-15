@@ -1,5 +1,5 @@
-## 📌 Playwright Automation – Gmail OTP & Account Confirmation
-# This project automates Gmail-based flows using Playwright.
+# 📌 Playwright Automation – Gmail OTP & Account Confirmation
+## This project automates Gmail-based flows using Playwright.
 - It covers extracting OTP from Gmail and accessing confirmation links (via Gmail API Token or Gmail App Password).
 ## 🚀 Features Automated
 - Gmail Account Confirmation
@@ -14,7 +14,7 @@
 
 - Verifies successful login.
 
-## 🔑 OTP Extraction
+# 🔑 OTP Extraction
 
 - Fetches OTP from Gmail email.
 
@@ -22,7 +22,7 @@
 
 - Enters OTP into application OTP field.
 
-## Prerequisites
+# Prerequisites
 
 - Node.js
 - installed (v18+ recommended).
@@ -31,23 +31,23 @@
 
 - A valid OAuth 2.0 token generated from Google OAuth Playground or a Gmail App Password.
 
-## ⚙️ Installation & Setup
+# ⚙️ Installation & Setup
 - Clone the Repository
 
 `git clone https://github.com/ShabitRony/gmail-otp-link-extractor-playwright`
 
 `cd gmail-otp-link-extractor-playwright`
 
-## Install Dependencies
+# Install Dependencies
 
 `npm install`
 
-## Install Playwright Browsers:
+# Install Playwright Browsers:
 
 `npx playwright install`
 
-##  Gmail Access Setup
-# Option 1 — Generate Gmail API token (OAuth 2.0 Playground)
+#  Gmail Access Setup
+## Option 1 — Generate Gmail API token (OAuth 2.0 Playground)
 
 - When to use: preferred for production or when you need OAuth refresh tokens (safer and Google-recommended). 
 
@@ -73,7 +73,7 @@
 - GMAIL_API_TOKEN=<ya29.a0Af...>         # the access token from Playground
 
 
-# Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
+## Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
 
 - When to use: quick for personal accounts or development when the app accepts username+password (but not preferable for production). App passwords        require 2-Step Verification on the Google account. 
 
@@ -156,7 +156,7 @@ GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
 │ └── loginSetup.js
 
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 - Playwright – Browser automation
 
@@ -168,12 +168,12 @@ GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
 
 - JSON – For storing user data
 
-## Run Tests
+# Run Tests
 
-# Run all Test
+### Run all Test
 
 `npx playwright test`
 
-# For Single test
+### For Single test
 
 `npx playwright test "./test/otp.spec.js"`
