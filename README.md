@@ -35,6 +35,7 @@
 - Clone the Repository
 
 `git clone https://github.com/ShabitRony/gmail-otp-link-extractor-playwright`
+
 `cd gmail-otp-link-extractor-playwright`
 
 ## Install Dependencies
@@ -78,41 +79,42 @@
 
 Step-by-step (desktop / web browser):
 
-- 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
+# 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
 
-- 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
+# 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
 
-- 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
+# 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
 
-- If not enabled yet, click Get started (or Turn on) and follow the prompts:
+ - If not enabled yet, click Get started (or Turn on) and follow the prompts:
 
-- Enter your account password
+ - Enter your account password
 
-- Add a phone number or authenticator app
+ - Add a phone number or authenticator app
 
-- Verify the second factor and complete setup.
+ - Verify the second factor and complete setup.
 
-- If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
+ - If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
 
-- 4. In App passwords:
+  # 4. In App passwords:
 
-- Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
+ - Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
 
-- Select device: choose the appropriate device or Other → give a name.
+ - Select device: choose the appropriate device or Other → give a name.
 
-- Click Generate.
+ - Click Generate.
 
-- Google will display a 16-character app password (grouped like abcd efgh ijkl mnop). Copy this password now — you will not be able to view it again after closing.
+ - Google will display a 16-character app password (grouped like abcd efgh ijkl mnop). Copy this password now — you will not be able to view it again after closing.
 
-- Put this in your .env (example):
+ - Put this in your .env (example):
 
-`GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
+ `GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
 
-- Configure Environment Variables
+ - Configure Environment Variables
 
-- Create a .env file in the project root and add:
+ - Create a .env file in the project root and add:
 
 `Gmail_URL=https://gmail.googleapis.com/gmail/v1/users/me/messages`
+
 `GMAIL_API_TOKEN=<your-oauth2-token>`
 
 `GMAIL_EMAIL=<your-gmail-address>`
