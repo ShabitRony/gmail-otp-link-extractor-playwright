@@ -123,6 +123,134 @@ Step-by-step (desktop / web browser):
 
 `GOOGLE_PASSWORD=<websie-login-password>`
 
+# Option 3 - 🔐 Gmail API — Client ID & Client Secret Setup
+- 
+## ⚙️ How to Generate Client ID & Secret (via Web Application)
+## 1) Create a Google Cloud project & enable Gmail API
+### 1.Go to Google Cloud Console: https://console.cloud.google.com/ and sign in with the Google account you will use.
+
+### 2.At the top, click the project dropdown → New Project.
+
+### 3.Give it a name like my-gmail-integration and click Create.
+
+### 4.With the project selected, open APIs & Services → Library from the left menu.
+
+### 5.Search for Gmail API and click Enable.
+
+## 2) Configure OAuth Consent Screen
+
+### You must configure this before creating OAuth credentials.
+
+### 1.In the Cloud Console, go to APIs & Services → OAuth consent screen.
+
+### 2.Choose External (if you're testing / personal use) and click Create.
+
+### 3.Fill required fields:
+
+- App name (e.g., My Gmail Tool)
+
+- User support email
+
+- Developer contact email
+
+### 4.Optionally add a logo and homepage. For development you can skip most optional fields.
+
+### 5.Under Scopes you can add later — for now, save & continue and finish the basic setup.
+
+## 3) Create OAuth 2.0 Client ID & Client Secret
+
+### 1.Go to APIs & Services → Credentials.
+
+### 2.Click + CREATE CREDENTIALS → OAuth client ID.
+
+### 3.If it asks, configure the consent screen (you already did that).
+
+### 4.Choose Application type: Web application.
+
+### 5.Name it (e.g., local-dev-web-client).
+
+### 6.Important — Authorized redirect URIs: Add the redirect URI you’ll use. Common options:
+
+ - For OAuth 2.0 Playground: https://developers.google.com/oauthplayground
+
+ - For local dev apps: http://localhost:3000 (replace 3000 with your port)
+
+ - If you use OAuth Playground later, make sure you add the Playground URI above.
+
+### 7.Click Create.
+
+- You will see:
+
+`Client ID:     <CLIENT_ID>.apps.googleusercontent.com`
+
+`Client Secret: <CLIENT_SECRET>`
+
+
+- Copy both and store them securely (e.g., .env).
+
+- Example .env entries:
+
+`GMAIL_CLIENT_ID=<CLIENT_ID>.apps.googleusercontent.com`
+
+`GMAIL_CLIENT_SECRET=<CLIENT_SECRET>`
+
+## If you plan to publish the app or have multiple users, fill these carefully to pass Google verification when needed.
+
+## 4) Use OAuth 2.0 Playground to get tokens (easy, GUI-based)
+
+### OAuth 2.0 Playground is a Google tool that helps you manually run the OAuth flow and inspect tokens. We’ll use it to obtain a refresh token (which your app needs to refresh expired access tokens).
+
+### 1.Open: https://developers.google.com/oauthplayground
+
+### 2.Click the gear icon (top-right) to open Settings.
+
+ - Check: “Use your own OAuth credentials”
+
+ - Paste your Client ID and Client Secret from step 3.
+
+ - Close settings.
+
+### 3.On the left side under “Step 1 — Select & authorize APIs”:
+
+ - Expand Gmail API or paste scopes manually. Common useful scopes:
+
+ - https://mail.google.com/ (full access: read/send/modify)
+
+ - https://www.googleapis.com/auth/gmail.send (send only)
+
+ - https://www.googleapis.com/auth/gmail.readonly (read only)
+
+ - Click the scope(s) you need, then click Authorize APIs.
+
+### 4.A Google sign-in window will open asking you to choose account and grant permissions. Go through it.
+
+### 5.After granting, the Playground will show a redirect URL in the playground UI.
+
+ - If it redirected in your browser address bar, the URL will look like:
+
+`https://developers.google.com/oauthplayground/?code=4/0AbC...&scope=...`
+
+
+### What to copy: you typically don't have to manually copy the code because the playground can automatically exchange it for tokens. But if your script asks for the authorization code, copy the value of the code parameter from the browser URL (everything after code= until the next &).
+ - Example code value:
+
+`4/0AbCDeFgHiJKlmNOpQRsTuVwXyZ123456789`
+
+
+Copy the refresh_token (and optionally access_token). The playground shows them in a JSON response — copy them to your .env or secure storage.
+
+Example .env:
+
+` GMAIL_CLIENT_ID=<your-client-id>.apps.googleusercontent.com`
+
+`GMAIL_CLIENT_SECRET=<your-client-secret>`
+
+`GMAIL_REFRESH_TOKEN=<refresh-token-you-copied>`
+
+`GMAIL_ACCESS_TOKEN=<optional-current-access-token> `
+
+
+
 📂 Folder Structure
 
 GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
