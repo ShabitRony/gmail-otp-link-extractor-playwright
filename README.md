@@ -286,15 +286,23 @@ GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
 
 # 🛠️ Tech Stack
 
-- Playwright – Browser automation
+- Playwright – End-to-end browser automation framework for testing and email interaction.
 
-- Node.js – Runtime environment
+- Node.js – JavaScript runtime for executing Playwright scripts and utility modules.
 
-- Gmail API / App Password – Accessing emails programmatically
+- Gmail API (OAuth 2.0) – Secure access to Gmail using Client ID, Client Secret, and Refresh Tokens.
 
-- OAuth 2.0 Playground – To generate Gmail API tokens
+- Gmail App Password – Alternative authentication method for IMAP/SMTP clients when OAuth isn’t used.
 
-- JSON – For storing user data
+- OAuth 2.0 Playground – Google’s tool to manually generate and refresh OAuth tokens.
+
+- dotenv – For managing environment variables securely (.env configuration).
+
+- IMAP / Gmail REST API – Fetching OTPs and confirmation links directly from Gmail messages.
+
+- JavaScript (ES6+) – Core scripting language for test logic and utilities.
+
+- JSON – Used for token storage, configuration, and data handling within scripts.
 
 # Run Tests
 
