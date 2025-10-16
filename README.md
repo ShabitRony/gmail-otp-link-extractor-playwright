@@ -1,5 +1,5 @@
-## 📌 Playwright Automation – Gmail OTP & Account Confirmation
-# This project automates Gmail-based flows using Playwright.
+# 📌 Playwright Automation – Gmail OTP & Account Confirmation
+## This project automates Gmail-based flows using Playwright.
 - It covers extracting OTP from Gmail and accessing confirmation links (via Gmail API Token or Gmail App Password).
 ## 🚀 Features Automated
 - Gmail Account Confirmation
@@ -14,7 +14,7 @@
 
 - Verifies successful login.
 
-## 🔑 OTP Extraction
+# 🔑 OTP Extraction
 
 - Fetches OTP from Gmail email.
 
@@ -22,7 +22,7 @@
 
 - Enters OTP into application OTP field.
 
-## Prerequisites
+# Prerequisites
 
 - Node.js
 - installed (v18+ recommended).
@@ -31,22 +31,23 @@
 
 - A valid OAuth 2.0 token generated from Google OAuth Playground or a Gmail App Password.
 
-## ⚙️ Installation & Setup
+# ⚙️ Installation & Setup
 - Clone the Repository
 
 `git clone https://github.com/ShabitRony/gmail-otp-link-extractor-playwright`
+
 `cd gmail-otp-link-extractor-playwright`
 
-## Install Dependencies
+# Install Dependencies
 
 `npm install`
 
-## Install Playwright Browsers:
+# Install Playwright Browsers:
 
 `npx playwright install`
 
-##  Gmail Access Setup
-# Option 1 — Generate Gmail API token (OAuth 2.0 Playground)
+#  Gmail Access Setup
+## Option 1 — Generate Gmail API token (OAuth 2.0 Playground)
 
 - When to use: preferred for production or when you need OAuth refresh tokens (safer and Google-recommended). 
 
@@ -72,47 +73,48 @@
 - GMAIL_API_TOKEN=<ya29.a0Af...>         # the access token from Playground
 
 
-# Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
+## Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
 
 - When to use: quick for personal accounts or development when the app accepts username+password (but not preferable for production). App passwords        require 2-Step Verification on the Google account. 
 
 Step-by-step (desktop / web browser):
 
-- 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
+### 1. Open https://myaccount.google.com and sign in to the Google account you want to use.
 
-- 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
+### 2. In the left column click Security (or click the grid icon → Manage your Google Account → Security). 
 
-- 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
+### 3. Under “How you sign in to Google”, find 2-Step Verification → click it.
 
-- If not enabled yet, click Get started (or Turn on) and follow the prompts:
+ - If not enabled yet, click Get started (or Turn on) and follow the prompts:
 
-- Enter your account password
+ - Enter your account password
 
-- Add a phone number or authenticator app
+ - Add a phone number or authenticator app
 
-- Verify the second factor and complete setup.
+ - Verify the second factor and complete setup.
 
-- If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
+ - If already enabled, simply open the 2-Step Verification page, scroll down, and click App passwords.
 
-- 4. In App passwords:
+  ### 4. In App passwords:
 
-- Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
+ - Select app: choose Mail (or choose Other (Custom name) and type a recognizable name like gmail-otp-extractor).
 
-- Select device: choose the appropriate device or Other → give a name.
+ - Select device: choose the appropriate device or Other → give a name.
 
-- Click Generate.
+ - Click Generate.
 
-- Google will display a 16-character app password (grouped like abcd efgh ijkl mnop). Copy this password now — you will not be able to view it again after closing.
+ - Google will display a 16-character app password (grouped like abcd efgh ijkl mnop). Copy this password now — you will not be able to view it again after closing.
 
-- Put this in your .env (example):
+ - Put this in your .env (example):
 
-`GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
+ `GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
 
-- Configure Environment Variables
+ - Configure Environment Variables
 
-- Create a .env file in the project root and add:
+ - Create a .env file in the project root and add:
 
 `Gmail_URL=https://gmail.googleapis.com/gmail/v1/users/me/messages`
+
 `GMAIL_API_TOKEN=<your-oauth2-token>`
 
 `GMAIL_EMAIL=<your-gmail-address>`
@@ -282,7 +284,7 @@ GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
 │ └── loginSetup.js
 
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 - Playwright – Browser automation
 
@@ -294,12 +296,12 @@ GMAIL-OTP-LINK-EXTRACTOR-PLAYWRIGHT/
 
 - JSON – For storing user data
 
-## Run Tests
+# Run Tests
 
-# Run all Test
+### Run all Test
 
 `npx playwright test`
 
-# For Single test
+### For Single test
 
 `npx playwright test "./test/otp.spec.js"`
