@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { mitLoginPage } from '../pages/mitLoginPage.js';
+import { otpLoginPage } from '../pages/otpLoginPage.js';
 import { getLatestEmailDetailsUnified } from '../utils/gmailUtilsCombined.js'; // ✅ only import the unified function
 
 test.describe('MIT Login Flow', () => {
   test('should login successfully with OTP', async ({ page }) => {
-    const loginPage = new mitLoginPage(page);
+    const loginPage = new otpLoginPage(page);
 
     // Go to login page and enter credentials
     await loginPage.gotoLoginPage();

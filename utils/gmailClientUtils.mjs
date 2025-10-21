@@ -13,7 +13,7 @@ const TOKEN_PATH = path.join(process.cwd(), "token.json");
 const oAuth2Client = new google.auth.OAuth2(
   process.env.GMAIL_CLIENT_ID,
   process.env.GMAIL_CLIENT_SECRET,
-  process.env.GMAIL_REDIRECT_URI // e.g. http://localhost:3000/oauth2callback
+  process.env.GMAIL_REDIRECT_URI 
 );
 
 // Ensure we have a valid token (auto refresh if expired)

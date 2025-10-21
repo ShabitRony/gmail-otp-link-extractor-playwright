@@ -72,6 +72,9 @@
 
 - GMAIL_API_TOKEN=<ya29.a0Af...>         # the access token from Playground
 
+### Note: If you’re using the API method, make sure to declare it properly in your test (spec) file as shown below:
+```const = await getLatestEmailDetailsUnified({method: "API", request,});```
+
 
 ## Option 2 — Generate Gmail App Password (simpler, for scripts that use SMTP/IMAP clients which don’t support OAuth)
 
