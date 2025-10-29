@@ -110,7 +110,7 @@ Step-by-step (desktop / web browser):
 
  - Put this in your .env (example):
 
- `GMAIL_APP_PASSWORD=abcd efgh ijkl mnop`
+ `GMAIL_APP_PASSWORD=<Your_Google_App_Password>`
 
  - Configure Environment Variables
 
@@ -126,7 +126,7 @@ Step-by-step (desktop / web browser):
 
 `BASE_URL=<your-application-url>`
 
-`GOOGLE_PASSWORD=<websie-login-password>`
+`GOOGLE_PASSWORD=<website-login-password>`
 
 # Option 3 - 🔐 Gmail API — Client ID & Client Secret Setup
 - 
@@ -250,11 +250,11 @@ Copy the refresh_token (and optionally access_token). The playground shows them 
 
 
 ## Option-2 ##
-`GMAIL_EMAIL=<Your_Gmail_Email>`
+`GMAIL_EMAIL=<Your_Gmail>`
 
 `GMAIL_APP_PASSWORD=<Your_Gmail_App_Password>`
 
-`GOOGLE_PASSWORD=<Your_Password>`
+`GOOGLE_PASSWORD=<Your_Website_Login_Password>`
 
 ## Option-3 ##
 `GMAIL_CLIENT_ID=<Your_Generated_Client_Id>`
